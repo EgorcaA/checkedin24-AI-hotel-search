@@ -13,14 +13,9 @@ export default defineConfig(({ mode }) => ({
     Boolean
   ),
   resolve: {
-    alias: [
-      { find: "@", replacement: path.resolve(__dirname, "src") },
-      { find: "@lib", replacement: path.resolve(__dirname, "src/lib") },
-      {
-        find: "@components",
-        replacement: path.resolve(__dirname, "src/components"),
-      },
-    ],
+    alias: {
+      "@": path.resolve(__dirname, "./src"),
+    },
   },
   build: {
     sourcemap: true,
