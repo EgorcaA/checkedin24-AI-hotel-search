@@ -13,13 +13,18 @@ export default defineConfig(({ mode }) => ({
     Boolean
   ),
   resolve: {
-    alias: {
-      "@": path.resolve(__dirname, "./src"),
-      src: path.resolve(__dirname, "./src"),
-    },
+    alias: [
+      { find: "@", replacement: path.resolve(__dirname, "src") },
+      { find: "@lib", replacement: path.resolve(__dirname, "src/lib") },
+      {
+        find: "@components",
+        replacement: path.resolve(__dirname, "src/components"),
+      },
+    ],
   },
   build: {
     sourcemap: true,
+    outDir: "dist",
     rollupOptions: {
       input: {
         main: path.resolve(__dirname, "index.html"),
